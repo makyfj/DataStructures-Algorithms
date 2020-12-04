@@ -16,8 +16,10 @@ int main() {
 
   // Passing an arry by value
   std::array<int, 5> yes = {1, 2, 3, 4, 5};
+  std::array<int, 5> newone = {1, 2, 3, 4, 5};
 
   print(yes);
+  print(newone);
 
   return 0;
 }
