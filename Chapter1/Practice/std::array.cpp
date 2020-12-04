@@ -18,8 +18,12 @@ int main() {
   std::array<int, 5> yes = {1, 2, 3, 4, 5};
   std::array<int, 5> newone = {1, 2, 3, 4, 5};
 
+  // New array
+  std::array<int, 5> otherarray = {1, 2, 3, 4, 5};
+
   print(yes);
   print(newone);
+  print(otherarray);
 
   return 0;
 }
