@@ -16,14 +16,24 @@ int main() {
 
   // Passing an arry by value
   std::array<int, 5> yes = {1, 2, 3, 4, 5};
-  std::array<int, 5> newone = {1, 2, 3, 4, 5};
 
-  // New array
-  std::array<int, 5> otherarray = {1, 2, 3, 4, 5};
+  std::cout << "front: " << yes.front() << std::endl;
+  std::cout << "back: " << yes.back() << std::endl;
+  std::cout << "data: " << *(yes.data() + 2) << std::endl;
 
-  print(yes);
-  print(newone);
-  print(otherarray);
+  // print(yes);
+
+  // range-based loop
+  for (auto it = yes.begin(); it != yes.end(); it++) {
+    auto element = (*it);
+    std::cout << "element : " << element << " " << std::endl;
+  }
+
+  std::array<int, 5> newone(yes);
+
+  for (auto ele : newone) {
+    std::cout << "New array = " << ele << std::endl;
+  }
 
   return 0;
 }
