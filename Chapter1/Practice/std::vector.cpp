@@ -27,8 +27,14 @@ int main() {
   // Add to potition 2
   vec2.insert(std::find(vec2.begin(), vec2.end(), 2), 99);
 
+  // emplace_back for better performance
+  vec2.emplace_back(1111);
+  vec2.emplace(std::find(vec2.begin(), vec2.end(), 1), 555);
+  vec2.emplace(vec2.begin(), 88);
+
+  std::cout << "First vect: ";
   for (auto ele : vec2) {
-    std::cout << ele << std::endl;
+    std::cout << ele << ", ";
   }
 
   return 0;
