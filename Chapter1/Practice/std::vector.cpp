@@ -32,7 +32,28 @@ int main() {
   vec2.emplace(std::find(vec2.begin(), vec2.end(), 1), 555);
   vec2.emplace(vec2.begin(), 88);
 
-  std::cout << "First vect: ";
+  std::cout << "Vector: ";
+  for (auto ele : vec2) {
+    std::cout << ele << ", ";
+  }
+
+  std::cout << std::endl;
+
+  std::cout << "Size: " << vec2.size() << std::endl;
+
+  // pop_back and erase
+  vec2.pop_back();
+
+  std::cout << "Vector: ";
+  for (auto ele : vec2) {
+    std::cout << ele << ", ";
+  }
+
+  std::cout << std::endl;
+  std::cout << "Size: " << vec2.size() << std::endl;
+
+  vec.clear();
+  std::cout << "Vector: ";
   for (auto ele : vec2) {
     std::cout << ele << ", ";
   }
