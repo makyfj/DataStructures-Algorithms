@@ -20,9 +20,14 @@ int main() {
   // Adding a new array
   std::array<int, 5> no = {100, 100, 100, 100, 100};
 
+  // Adding one more array
+  std::array<int, 5> xx = {99, 99, 99, 99, 99};
+
   print(yes);
 
   print(no);
+
+  print(xx);
 
   return 0;
 }
