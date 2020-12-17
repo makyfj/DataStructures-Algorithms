@@ -63,6 +63,60 @@ struct orgTree {
   }
 };
 
+static void preOrder(Node *start) {
+  if (!start) {
+    return;
+  }
+  std::cout << start->position << " , ";
+  preOrder(start->first);
+  preOrder(start->second);
+}
+
+static void inOrder(Node *start) {
+  if (!start) {
+    return;
+  }
+  inOrder(start->first);
+  std::cout << start->position << " , ";
+  inOrder(start->second);
+}
+
+static void postOrder(Node *start) {
+  if (!start) {
+    return;
+  }
+  postOrder(start->first);
+  postOrder(start->second);
+  std::cout << start->position << " , ";
+}
+
+static void levelOrder(Node *start) {
+  if (!start) {
+    return;
+  }
+  std::queue<Node *> que;
+  que.push(start);
+  while (!que.empty()) {
+    int size = que.size();
+
+    for (int i = 0; i < size; i++) {
+
+      auto current = que.front();
+      que.pop();
+
+      std::cout << current->position << ", ";
+      if (current->first) {
+        que.push(current->first);
+      }
+
+      if (current->second) {
+        que.push(current->second);
+      }
+    }
+    std::cout << std::endl;
+  }
+}
+
 int main() {
   auto tree = orgTree::createOrgStrucutre("CEO");
 
@@ -80,6 +134,43 @@ int main() {
     std::cout << "Added Marketing Head in the tree" << std::endl;
   else
     std::cout << "Couldn't add Marketing Head in the tree" << std::endl;
+
+  if (tree.addSubordinate("IT Head", "Security Head"))
+    std::cout << "Added Security Head in the tree" << std::endl;
+  else
+    std::cout << "Couldn't add Security Head in the tree" << std::endl;
+
+  if (tree.addSubordinate("IT Head", "App Development Head"))
+    std::cout << "Added App Development Head in the tree" << std::endl;
+  else
+    std::cout << "Couldn't add App Development Head in the tree" << std::endl;
+
+  if (tree.addSubordinate("Marketing Head", "Logistics Head"))
+    std::cout << "Added Logistics Head in the tree" << std::endl;
+  else
+    std::cout << "Couldn't add Logistics Head in the tree" << std::endl;
+
+  if (tree.addSubordinate("Deputy Director", "Public Relations Head"))
+    std::cout << "Added Public Relations Head in the tree" << std::endl;
+  else
+    std::cout << "Couldn't add Public Relations Head in the tree" << std::endl;
+
+  if (tree.addSubordinate("Deputy Director", "Finance Head"))
+    std::cout << "Added Finance Head in the tree" << std::endl;
+  else
+    std::cout << "Couldn't add Finance Head in the tree" << std::endl;
+
+  std::cout << "PreOrder" << std::endl;
+  preOrder(tree.root);
+
+  std::cout << "\nInOrder" << std::endl;
+  inOrder(tree.root);
+
+  std::cout << "\nPostOrder" << std::endl;
+  postOrder(tree.root);
+
+  std::cout << "\nLevelOrder" << std::endl;
+  levelOrder(tree.root);
 
   return 0;
 }
